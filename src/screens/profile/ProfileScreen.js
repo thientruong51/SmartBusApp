@@ -170,7 +170,7 @@ export default function ProfileScreen({ navigation }) {
           try {
             setIsLoggingOut(true);
             // luôn clear local dù API fail (đã xử lý trong slice)
-            await dispatch(logout()).unwrap().catch(() => {});
+            await dispatch(logout()).unwrap().catch(() => { });
           } finally {
             setIsLoggingOut(false);
             navigation.reset({ index: 0, routes: [{ name: "Login" }] });
@@ -205,10 +205,11 @@ export default function ProfileScreen({ navigation }) {
                   source={
                     profile?.ImageUrl
                       ? { uri: profile.ImageUrl }
-                      : require("../../../assets/spiderman.png")
+                      : { uri: "https://cellphones.com.vn/sforum/wp-content/uploads/2023/10/avatar-trang-4.jpg" }
                   }
                   style={styles.avatar}
                 />
+
                 <TouchableOpacity
                   style={styles.editButton}
                   onPress={() =>
